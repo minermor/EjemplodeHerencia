@@ -1,0 +1,63 @@
+public class Circulo:Figura
+{
+//Vemos que en esta clase solo hay que declarar
+//una variable
+
+protected int radio;
+//Este constructor tendrá todos los parámetros
+//por defecto y un radio porque es un circulo
+
+public Circulo(int x, int y, Color miColor, Control miControl,
+ int radio):base(x,y,miColor,miControl)
+{
+   //Validacion
+   this.radio = radio;
+}
+
+//Ahora hay que programar como se mostrará la figura
+public override void Muestra()
+{
+   Graphics g = control.CreateGraphics();
+   g.DrawEllipse(myPen,x-radio,y-radio,radio*2,radio*2);
+   visible = true;
+}
+ 
+//Decimos como se calcula el area en este caso
+public override int Area()
+{
+   return Math.PI * Math.PI * radio;
+}
+ 
+//Le podemos añadir otro método independiente
+public int Perimetro()
+{
+    return 2 * Math.PI * radio;
+}
+}
+ 
+//Esta clase también heredará de figura
+public class Rectangulo:Figura
+{
+   protected int ancho,alto;
+ 
+public Rectangulo(int x, int y, Color miColor, Control miControl,
+int ancho, int alto)
+:base(x,y,miColor,miControl)
+{
+   //Validar
+   this.ancho = ancho;
+   this.alto = alto;
+}
+//Redefinimos como mostrar la figura
+public override void Muestra()
+{
+   Graphics g = control.CreateGraphics();
+   g.DrawRectangle(myPen,x,y,ancho,alto);
+   visible = true;
+}
+//Redefinimos como calcular el area
+public override int Area()
+{
+   return alto * ancho;
+}
+}
