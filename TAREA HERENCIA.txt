@@ -48,6 +48,7 @@ int ancho, int alto)
    this.ancho = ancho;
    this.alto = alto;
 }
+
 //Redefinimos como mostrar la figura
 public override void Muestra()
 {
